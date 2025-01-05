@@ -1,120 +1,160 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Image, Alert } from 'react-native';
-import { Text, TextInput, Button, List } from 'react-native-paper';
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import Logo from '../components/Logo';
+import Footer from '../components/Footer';
+import { TextInput } from 'react-native-paper';
+import { useState } from 'react';
+import { students } from '../../assets/data/StudentsDb';
 
-const Login = ({ navigation }) => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+export default function Login({ navigation, setUser }) {
+  const [form, setForm] = useState({
+    username: '',
+    password: ''
+  });
+  const [showpassword, setShowPassword] = useState(false);
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
 
-    const handleLogin = () => {
-        if (username === 'admin' && password === '1234') {
-            Alert.alert('Success', 'Login successful!');
-            navigation?.navigate('Profile'); // Ensure navigation is passed correctly
-        } else {
-            Alert.alert('Error', 'Invalid username or password');
+  const login = () => {
+    const user = students.find(student => student.username === form.username && student.password === form.password);
+    if (user) {
+      setUser(user)
+      navigation.navigate('BottomTabs', { user });
+    } else {
+      setShowErrorMessage(true);
+    }
+  }
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.logoContainer}>
+        <Logo />
+      </View>
+
+      <View style={styles.formContainer}>
+        <Text style={styles.title}>STUDENT LOGIN</Text>
+        <TextInput
+          label="Username"
+          style={styles.input}
+          mode='outlined'
+          value={form.username}
+          onChangeText={(text) => {
+            setShowErrorMessage(false);
+            setForm({
+              ...form,
+              username: text
+            });
+          }}
+        />
+        <TextInput
+          label="Password"
+          secureTextEntry={!showpassword}
+          style={styles.input}
+          right={<TextInput.Icon 
+            icon={showpassword ? 'eye-off' : 'eye'}
+            onPress={() => setShowPassword(!showpassword)} />}
+          mode='outlined'
+          value={form.password}
+          onChangeText={(text) => {
+            setShowErrorMessage(false);
+            setForm({
+              ...form,
+              password: text
+            });
+          }}
+        />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={login}
+        >
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
+
+        {showErrorMessage && 
+          <View style={styles.error}>
+            <Image 
+              source={require('../../assets/icons/error.png')} 
+              style={styles.errorIcon}
+            /> 
+            <Text style={styles.errorText}>Please check your username and password</Text>
+          </View>
         }
-    };
+      </View>
 
-    return (
-        <>
-            <View style={styles.header}>
-                <Text style={styles.headerText}>UoV Student Care</Text>
-            </View>
-            <View style={styles.body}>
-                <View style={styles.inlineContainer}>
-                    <View style={styles.logoContainer}>
-                        <Image
-                            source={require('../assets/images/logo.png')}
-                            style={styles.logo}
-                            resizeMode="contain"
-                        />
-                    </View>
-                    <View style={styles.listContainer}>
-                        <List.Subheader style={styles.listItem}>வவுனியாப் பல்கலைக்கழகம், இலங்கை</List.Subheader>
-                        <List.Subheader style={styles.listItem}>වවුනියා විශ්වවිද්‍යාලය, ශ්‍රී ලංකාව</List.Subheader>
-                        <List.Subheader style={styles.listItem}>University of Vavuniya, Sri Lanka</List.Subheader>
-                    </View>
-                </View>
-                <Text style={styles.headerTitle}>STUDENT LOGIN</Text>
-                <View style={styles.textContainer}>
-                    <TextInput
-                        label="Username"
-                        value={username}
-                        onChangeText={(text) => setUsername(text)}
-                    />
-                    <TextInput
-                        label="Password"
-                        value={password}
-                        secureTextEntry
-                        onChangeText={(text) => setPassword(text)}
-                    />
-                    <Button mode="contained" onPress={handleLogin}>
-                        Login
-                    </Button>
-                </View>
-            </View>
-            <View style={styles.footer} />
-        </>
-    );
-};
+      <View style={styles.footerContainer}>
+        <Footer />
+      </View>
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
-    header: {
-        backgroundColor: '#800080',
-        padding: 20,
-        alignItems: 'center',
-        width: '100%',
-        height: 100,
-    },
-    headerText: {
-        color: 'white',
-        fontSize: 30,
-        fontWeight: 'bold',
-    },
-    logoContainer: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    logo: {
-        width: 150,
-        height: 150,
-    },
-    inlineContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginBottom: 20,
-        gap: 20,
-    },
-    listContainer: {
-        justifyContent: 'center',
-    },
-    listItem: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: '#800080',
-        marginVertical: 2,
-    },
-    headerTitle: {
-        fontSize: 25,
-        fontWeight: '500',
-        textAlign: 'center',
-        marginVertical: 20,
-    },
-    textContainer: {
-        width: '90%',
-        gap: 15,
-    },
-    body: {
-        margin: 20,
-        height: 500,
-    },
-    footer: {
-        backgroundColor: '#800080',
-        padding: 20,
-        width: '100%',
-    },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  logoContainer: {
+    flex: 0.4,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  formContainer: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  footerContainer: {
+    flex: 0.5,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    paddingBottom: 10,
+    paddingHorizontal: 10,
+  },
+  title: {
+    marginTop: -50,
+    paddingBottom: 40,
+    fontSize: 32,
+    fontWeight: 'semibold',
+    marginBottom: 50,
+  },
+  input: {
+    width: '100%',
+    height: 50,
+    marginBottom: 15,
+    paddingHorizontal: 10,
+  },
+  button: {
+    width: '100%',
+    height: 50,
+    backgroundColor: '#4b0150',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 50,
+    marginBottom: 15,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  error: {
+    width: '100%',
+    height: 40,
+    flexDirection: 'row',
+    backgroundColor: '#F3E5F5',
+    alignItems: 'center',
+    paddingHorizontal: 15,
+    borderRadius: 10,
+  },
+  errorIcon: {
+    width: 20,
+    height: 20,
+    resizeMode: 'contain',
+    marginRight: 10,
+  },
+  errorText: {
+    fontSize: 14,
+    fontWeight:600,
+    flex: 1,
+  }
 });
-
-export default Login;
