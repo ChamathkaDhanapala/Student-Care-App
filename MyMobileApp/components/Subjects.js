@@ -62,5 +62,70 @@ export default function Courses({route}) {
   );}
 
 const styles = StyleSheet.create({
-   
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+      },
+      scrollContainer: {
+        flexGrow: 1,
+        paddingBottom: 80
+      },
+      logoContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingVertical: 20,
+      },
+      centerContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      card: {
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        padding: 15,
+        margin: 10,
+        alignItems: 'center',
+        width: '90%',
+        alignSelf: 'center',
+      },
+      marksInfo: {
+        alignItems: 'flex-start',
+        width: '100%',
+        paddingHorizontal: 20,
+      },
+      footerContainer: {
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingVertical: 10,
+        elevation: 5,
+        paddingHorizontal: 10,
+      },
+      title: {
+        paddingTop: 10,
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 5,
+      },
+      description: {
+        fontSize: 14,
+        color: '#666',
+        textAlign: 'center',
+      },
+      subtitle: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        marginTop: 10,
+        marginBottom: 5,
+      },
 });
