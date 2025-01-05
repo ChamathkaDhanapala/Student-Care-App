@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import Logo from '../components/Logo';
-import Footer from '../components/Footer';
+//import Logo from '../components/Logo';
+//import Footer from '../components/Footer';
 import { TextInput } from 'react-native-paper';
 import { useState } from 'react';
 import { students } from '../../assets/data/StudentsDb';

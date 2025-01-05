@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
-import Logo from '../components/Logo';
-import Footer from '../components/Footer';
+//import Logo from '../components/Logo';
+//import Footer from '../components/Footer';
 import { Divider } from 'react-native-paper';
-import { courses } from '../../assets/data/StudentsDb';
+import { courses } from '../../data';
 
 export default function Courses({route}) {
 

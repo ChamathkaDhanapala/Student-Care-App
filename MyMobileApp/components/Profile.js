@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, Image } from 'react-native';
-import Logo from '../components/Logo';
-import Footer from '../components/Footer';
+//import Logo from '../components/Logo';
+//import Footer from '../components/Footer';
 import { Divider } from 'react-native-paper';
 
 export default function Profile({route}) {
