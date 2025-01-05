@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 //import Logo from '../components/Logo';
 //import Footer from '../components/Footer';
 import { Divider, DataTable } from 'react-native-paper';
-import { subjects,courses,marks } from '../../data';
+import { subjects,courses,marks } from '../data';
 
 export default function Courses({route}) {
 
