@@ -1,26 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, ScrollView } from 'react-native';
-import { PaperProvider } from 'react-native-paper';
+import React, { useState } from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 import Login from './components/Login';
+import BottomTabNavigator from './components/BottomTabNavigator';
+import { Image } from 'react-native';
+
+const Stack = createStackNavigator();
 
 export default function App() {
+
+  const [user, setUser] = useState(null);
+
   return (
-    <PaperProvider>
-      <ScrollView>
-        <View style={styles.container}>
-          <StatusBar style="auto" />
-          <Login/>
-        </View>
-      </ScrollView>
-    </PaperProvider>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ 
+        headerShown: true, 
+        headerTintColor:'white',
+        headerTitle:'UoV Student Care' ,
+        headerStyle:{
+          backgroundColor:'#4b0150'
+        }
+        }}>
+        <Stack.Screen name="Login">
+          {props => <Login {...props} setUser={setUser}/>}
+        </Stack.Screen>
+        <Stack.Screen name="BottomTabs" component={BottomTabNavigator} initialParams={{user}}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
