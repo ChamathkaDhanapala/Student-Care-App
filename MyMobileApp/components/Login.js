@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
-//import Logo from '../components/Logo';
-//import Footer from '../components/Footer';
+import Logo from './logo';
+import Footer from './Footer';
 import { TextInput } from 'react-native-paper';
 import { useState } from 'react';
 import { students } from '../data';
@@ -72,7 +72,7 @@ export default function Login({ navigation, setUser }) {
         {showErrorMessage && 
           <View style={styles.error}>
             <Image 
-              source={require('../../assets/icons/error.png')} 
+              source={require('../assets/icons/error.png')} 
               style={styles.errorIcon}
             /> 
             <Text style={styles.errorText}>Please check your username and password</Text>
