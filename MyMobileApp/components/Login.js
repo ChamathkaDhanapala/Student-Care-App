@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
+    margin:50,
   },
   footerContainer: {
     flex: 0.5,
