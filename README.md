@@ -1,4 +1,4 @@
-# Student-Care-App-for-University-of-Vauniya
+# Student-Care-App
 
 ## Table of Contents
 1. [Introduction](#introduction)
