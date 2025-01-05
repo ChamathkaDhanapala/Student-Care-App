@@ -19,12 +19,15 @@ export default function Profile({route}) {
           <Text style={styles.title}>{user.name}</Text>
           <Text style={styles.description}>Age: {user.age} | Gender: {user.gender}</Text>
           <Divider style={{ width: '80%', marginVertical: 30, backgroundColor: '#ccc' }} />
+          
           <View style={styles.infoContainer}>
             <Text style={styles.subtitle}>Contact Information</Text>
             <Text style={styles.description}>Email : {user.email}</Text>
             <Text style={styles.description}>Phone : {user.phone}</Text>
             <Text style={styles.description}>Address : {user.address}</Text>
+
             <Divider style={{ width: '80%', marginVertical: 20, backgroundColor: '#ccc' }} />
+
             <Text style={styles.subtitle}>Biological Information</Text>
             <Text style={styles.description}>Gender : {user.gender}</Text>
             <Text style={styles.description}>Age : {user.age}</Text>

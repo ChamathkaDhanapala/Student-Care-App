@@ -21,6 +21,7 @@ export default function Courses({route}) {
             <Text style={styles.title}>{course.name}</Text>
             <Text style={styles.description}>Code: {course.course_code} | Dept: {course.department}</Text>
             <Divider style={{ width: '80%', marginVertical: 20, backgroundColor: '#ccc' }} />
+            
             <View style={styles.courseInfo}>
               <Text style={styles.subtitle}>Course Information</Text>
               <Text style={styles.description}>Code : {course.course_code}</Text>
