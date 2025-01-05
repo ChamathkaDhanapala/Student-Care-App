@@ -136,3 +136,11 @@ root/
 ![Screenshot_20250105-195652_Expo Go](https://github.com/user-attachments/assets/9a2aecbd-37af-488a-89ed-349176c43e2d)
 
 
+![Screenshot_20250105-195847_Expo Go](https://github.com/user-attachments/assets/e0150ff2-d420-4364-90cf-32a7450719c3)![Screenshot_20250105-195809_Expo Go](https://github.com/user-attachments/assets/1b727df1-26a2-4910-8d6d-93bdbc4e965f)
+
+
+![Screenshot_20250105-195820_Expo Go](https://github.com/user-attachments/assets/b260ce22-f38e-4f58-b3ed-120b7b3ffa5d)
+
+
+![Screenshot_20250105-195829_Expo Go](https://github.com/user-attachments/assets/03bb33c8-9ce2-4bef-9c52-fe7f74a5f119)
+
