@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
-import Logo from './logo';
+import Logo from './Logo';
 import Footer from './Footer';
 import { Divider } from 'react-native-paper';
 import { courses } from '../data';

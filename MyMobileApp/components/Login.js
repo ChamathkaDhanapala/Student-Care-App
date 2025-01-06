@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import Logo from './logo';
+import Logo from './Logo';
 import Footer from './Footer';
 import { TextInput } from 'react-native-paper';
 import { useState } from 'react';
